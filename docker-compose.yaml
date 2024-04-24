@@ -2,7 +2,7 @@ version: '3'
 services:
     pf-humble:
         privileged: true
-        image: "olagh/activity_zed:inf"
+        image: "olagh/activity_zed:inf_avg"
         network_mode: host
         environment:
             - PULSE_SERVER=tcp:host.docker.internal:4713
@@ -11,12 +11,11 @@ services:
             - ROS_DOMAIN_ID=25
             - DISPLAY=:0
             - FASTRTPS_DEFAULT_PROFILES_FILE=/profile/fastrtps_default_profiles.xml
-            - path_activity=/home//home/activity_rec/src/activity_zed/
+            - path_activity=/home/activity_rec/src/activity_zed/
 
         volumes:
             - /tmp/.X11-unix/:/tmp/.X11-unix/
             - ./profile:/profile
             - ./launch_act_rec.bash:/tmp/launch_act_rec.bash
-        tty: true
-
-        #command: /tmp/launch_act_rec.bash
+        #tty: true
+        command: /tmp/launch_act_rec.bash

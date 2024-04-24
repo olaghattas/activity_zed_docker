@@ -29,6 +29,7 @@ RUN export LANG=en_US.UTF-8
 
 RUN apt install software-properties-common -y
 RUN add-apt-repository universe
+RUN apt-get install ros-humble-vision-opencv && pip install torchvision 
 
 RUN apt update && sudo apt install curl -y
 RUN sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
